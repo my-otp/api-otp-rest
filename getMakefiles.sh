@@ -16,6 +16,14 @@ if [ "$(command -v tar)" == "" ]; then
   exit 1
 fi
 
-wget -O makefiles.tar.gz https://codeload.github.com/my-otp/makefiles/tar.gz/refs/tags/v0.0.1
-tar --strip-components 1 -xf makefiles.tar.gz -C .
+wget -O makefiles.tar.gz https://codeload.github.com/my-otp/makefiles/tar.gz/refs/tags/v0.0.2
+
+mkdir -p ./assets/tmp/makefiles
+tar --strip-components 1 -xf makefiles.tar.gz -C ./assets/tmp/makefiles
+
+mkdir -p makefiles
+cp -r ./assets/tmp/makefiles/makefiles/* ./makefiles
+cp ./assets/tmp/makefiles/Makefile .
+
+rm -rf ./assets/tmp
 rm -rf makefiles.tar.gz
