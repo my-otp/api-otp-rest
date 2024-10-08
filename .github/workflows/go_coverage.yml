@@ -1,0 +1,2 @@
+- name: Go Coverage
+    uses: gwatts/go-coverage-action@v2.0.0
