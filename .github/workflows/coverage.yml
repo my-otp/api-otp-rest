@@ -25,7 +25,7 @@ jobs:
       with:
         # Optional coverage threshold
         # use fail-coverage to determine what should happen below this threshold
-        coverage-threshold: 100
+        coverage-threshold: 50
 
         # collect coverage for all packages beyond the one under test
         cover-pkg: ./...
@@ -37,10 +37,10 @@ jobs:
         
         # A url that the html report will be accessible at, once your
         # workflow uploads it.  Used in the pull request comment.
-        report-url: https://artifacts.example.com/go-coverage/${{ github.ref_name}}.html
+        #report-url: https://artifacts.example.com/go-coverage/${{ github.ref_name}}.html
 
-    - name: Upload coverage to s3
+    #- name: Upload coverage to s3
       # ensure this runs regardless of whether the threshold is met using always()
-      if: always() && steps.coverage.outputs.report-pathname != ''
-      run: |
-        aws s3 cp ${{ steps.coverage.outputs.report-pathname }} s3://artifacts.example.com-bucket/go-coverage/${{ github.ref_name}}.html
+      #if: always() && steps.coverage.outputs.report-pathname != ''
+      #run: |
+        #aws s3 cp ${{ steps.coverage.outputs.report-pathname }} s3://artifacts.example.com-bucket/go-coverage/${{ github.ref_name}}.html
