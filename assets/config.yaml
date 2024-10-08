@@ -1,3 +1,6 @@
 http:
   address: "127.0.0.1"
   port: 8080
+database:
+  url: "mongodb://localhost:27017"
+  database: "my-otp"

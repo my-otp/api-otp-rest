@@ -10,11 +10,11 @@ import (
 	"testing"
 )
 
-const mockConfigContent = "http:\n    address: 127.0.0.1\n    port: 8080"
+const mockConfigContent = "http:\n    address: 127.0.0.1\n    port: 8080\ndatabase:\n    database: my-otp\n    url: mongodb://localhost:27017"
 
 var yaml = gophig.YAMLMarshaler{}
 
-func Test_LoadConfig(t *testing.T) {
+func TestLoadConfig(t *testing.T) {
 	t.Run("valid config", func(t *testing.T) {
 		root := "./../../assets/tmp"
 		filePath := root + "/config.yaml"
